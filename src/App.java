@@ -7,7 +7,38 @@ public class App {
         System.out.println("Bienvenidos al Sistema de Gestion de Califiaciones");
         System.out.println("Presiona Enter para continuar...");
         entrada.nextLine();  // Espera hasta que se presiona Enter
+        
         //Ingresar logo con compañeros 
+System.out.println("__________________¶¶¶¶¶");
+System.out.println("_______________¶¶¶¶¶__¶¶________¶¶¶¶¶¶¶¶");
+System.out.println("__________¶¶¶¶__¶¶¶¶___¶¶_____¶¶¶¶¶____¶¶");
+System.out.println("______¶¶¶___¶¶¶¶________¶¶_¶¶¶______¶¶¶");
+System.out.println("___¶¶¶_¶¶¶¶______________¶¶_______¶¶¶");
+System.out.println("¶¶¶_¶¶¶¶________________¶¶______¶¶¶");
+System.out.println("¶¶¶¶_________________¶¶¶_____¶¶¶");
+System.out.println("¶¶________________¶¶¶_____¶¶¶");
+System.out.println("¶¶_____________¶¶¶_____¶¶¶");
+System.out.println("_¶¶________¶¶¶¶____¶¶¶¶");
+System.out.println("__¶¶____¶¶¶_____¶¶¶¶");
+System.out.println("___¶¶_¶¶¶¶___¶¶¶¶");
+System.out.println("____¶¶_____¶¶¶¶");
+System.out.println("__¶¶_____¶¶¶¶");
+System.out.println("¶¶____¶¶¶¶");
+System.out.println("¶¶_¶¶¶¶");
+System.out.println("¶¶¶¶¶_____¶¶¶¶¶___________¶¶¶¶¶");
+System.out.println("_________¶¶¶¶¶¶¶_________¶¶¶¶¶¶¶");
+System.out.println("_________¶¶¶¶¶¶¶_________¶¶¶¶¶¶¶");
+System.out.println("__________¶¶¶¶¶___________¶¶¶¶¶");
+System.out.println("__¶¶¶¶_____________________________¶¶¶¶");
+System.out.println("_¶¶¶¶¶¶___________________________¶¶¶¶¶");
+System.out.println("__¶¶¶¶¶¶_________________________¶¶¶¶¶¶");
+System.out.println("___¶¶¶¶¶¶_______________________¶¶¶¶¶¶");
+System.out.println("____¶¶¶¶¶¶¶___________________¶¶¶¶¶¶¶");
+System.out.println("______¶¶¶¶¶¶¶_______________¶¶¶¶¶¶¶");
+System.out.println("_________¶¶¶¶¶¶___________¶¶¶¶¶¶");
+System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
+System.out.println("______________¶¶¶¶¶¶¶¶¶¶¶¶");
+        
         int opcion = 0;
 
         System.out.println("****************************\nQue deseas hacer?\n1)Cargar datos\n2)Buscar\n3)Salir\n****************************");
