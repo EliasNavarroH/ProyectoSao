@@ -7,18 +7,39 @@ public class App {
         System.out.println("Presiona Enter para continuar...");
         entrada.nextLine();  // Espera hasta que se presiona Enter
         //Ingresar logo con compañeros 
+        int opcion = 0;
 
-        int cantidadAsignaturas = IngresoAsignaturas();
-        String[] asignaturas = IngresoAsginaturas(cantidadAsignaturas);
+        System.out.println("****************************\nQue deseas hacer?\n1)Cargar datos\n2)Buscar\n3)Salir\n****************************");
+        opcion =entrada.nextInt();
+        while(true)
+            if (opcion == 1) {
+            System.out.println("Carga de datos");
+            int cantidadAsignaturas = IngresoAsignaturas();
+            String[] asignaturas = IngresoAsginaturas(cantidadAsignaturas);
+        
+            int cantidadAlumnos = IngresoEstudiantes();
+            String[] alumnos = new String[cantidadAlumnos];
+            alumnos = IngresoEstudiantes(cantidadAlumnos);
 
+            int [][] calificaciones = new int[cantidadAlumnos][cantidadAsignaturas];
+            IngresoCalificaciones(calificaciones, alumnos, asignaturas);
+        }else if(opcion == 2){
+            System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Estadisticas\n3)Calculo de Promedios\n4)Salir");
+            opcion=entrada.nextInt();
+            if (opcion == 1) {
+                
+            }else if (opcion ==2) {
+                
+            }else if (opcion ==3) {
+                
+            }else if(opcion == 4){
 
+            }else {
+                System.out.println("Ingresa un numero valido");
+            }
+        break;
+        }
 
-        int cantidadAlumnos = IngresoEstudiantes();
-        String[] alumnos = new String[cantidadAlumnos];
-        alumnos = IngresoEstudiantes(cantidadAlumnos);
-
-        int [][] calificaciones = new int[cantidadAlumnos][cantidadAsignaturas];
-        IngresoCalificaciones(calificaciones, alumnos, asignaturas);
     }
 
     //Se inicializa el ingreso de asignaturas
@@ -73,7 +94,7 @@ public class App {
         }
         return alumnos;
     }
-    
+
     // se inicializa la clase para el ingreso de las calificaciones
     public static void IngresoCalificaciones(int[][] calificaciones, String[] alumnos, String[] asignaturas) {
         Scanner entrada = new Scanner(System.in);
