@@ -20,6 +20,8 @@ public class App {
         int [][] calificaciones = new int[cantidadAlumnos][cantidadAsignaturas];
         IngresoCalificaciones(calificaciones, alumnos, asignaturas);
     }
+
+    //Se inicializa el ingreso de asignaturas
     public static int IngresoAsignaturas() {
         Scanner entrada = new Scanner(System.in);
         while (true) {
@@ -33,7 +35,6 @@ public class App {
             }
         }
     }
-
     public static String [] IngresoAsginaturas(int cantidadAsignaturas){
         Scanner entrada = new Scanner(System.in);
         String asignaturas[] = new String[cantidadAsignaturas];
@@ -60,7 +61,6 @@ public class App {
             }
         }
     }
-
     public static String[] IngresoEstudiantes(int cantidadAlumnos) {
         Scanner entrada = new Scanner(System.in);
         String alumnos[] = new String[cantidadAlumnos];
@@ -73,7 +73,8 @@ public class App {
         }
         return alumnos;
     }
-
+    
+    // se inicializa la clase para el ingreso de las calificaciones
     public static void IngresoCalificaciones(int[][] calificaciones, String[] alumnos, String[] asignaturas) {
         Scanner entrada = new Scanner(System.in);
         for (int i = 0; i < alumnos.length; i++) {
