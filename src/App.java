@@ -8,7 +8,10 @@ public class App {
         entrada.nextLine();  // Espera hasta que se presiona Enter
         //Ingresar logo con compañeros 
         IngresoAsginaturas();
+        IngresoEstudiantes();
     }
+
+
     //se inicializa la clase para ingresar la cantidad de asignaturas
     public static void IngresoAsginaturas(){
         Scanner entrada = new Scanner(System.in);
@@ -33,10 +36,33 @@ public class App {
         }
             
     }
+
+    //Se inicializa la clase para ingresar alumnos
     public static void IngresoEstudiantes(){
-
+        Scanner entrada = new Scanner(System.in);
+        while (true) {
+            System.out.println("Cuantos alumnos quieres ingresar ? \nNo puedes Ingresar mas de 30");
+            int cantidadAlumnos = entrada.nextInt();
+            if (cantidadAlumnos <= 30) {
+                entrada.nextLine();
+                String alumnos[];
+                alumnos = new String[cantidadAlumnos];
+                int j = 1;
+                System.out.println("El formato de ingreso valido de alumnos es: apellido, nombre1 nombre2");
+                for(int i = 0; i < alumnos.length;i++){
+                    System.out.println("Ingrese el Alumno numero: "+ j);
+                    alumnos[i] = entrada.nextLine();
+                    j++;
+                }
+                break;
+            }else{
+                System.out.println("Ingrese 30 o menos alumnos");
+            }
+        }
+    entrada.close();
     }
-    public static void IngresoCalificacione(){
 
+
+    public static void IngresoCalificacione(){
     }
 }
