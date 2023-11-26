@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 public class App {
     
     public static void main(String[] args) throws Exception {
@@ -13,7 +14,7 @@ public class App {
         opcion =entrada.nextInt();
         while(true)
             if (opcion == 1) {
-            System.out.println("Carga de datos");
+            System.out.println("****** Carga de datos ******\n");
             int cantidadAsignaturas = IngresoAsignaturas();
             String[] asignaturas = IngresoAsginaturas(cantidadAsignaturas);
         
@@ -23,6 +24,7 @@ public class App {
 
             int [][] calificaciones = new int[cantidadAlumnos][cantidadAsignaturas];
             IngresoCalificaciones(calificaciones, alumnos, asignaturas);
+            break;
         }else if(opcion == 2){
             System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Estadisticas\n3)Calculo de Promedios\n4)Salir");
             opcion=entrada.nextInt();
@@ -46,7 +48,7 @@ public class App {
     public static int IngresoAsignaturas() {
         Scanner entrada = new Scanner(System.in);
         while (true) {
-            System.out.println("Cuantas asignaturas quieres ingresar ? \nNo puedes Ingresar mas de 10");
+            System.out.println("Cuantas asignaturas quieres ingresar ? (No puedes Ingresar mas de 10)");
             int cantidadAsignaturas = entrada.nextInt();
             if (cantidadAsignaturas <= 10) {
                 entrada.nextLine(); // Consumir el salto de línea después del nextInt
@@ -72,7 +74,7 @@ public class App {
     public static int IngresoEstudiantes() {
         Scanner entrada = new Scanner(System.in);
         while (true) {
-            System.out.println("Cuantos alumnos quieres ingresar ? \nNo puedes Ingresar mas de 30");
+            System.out.println("\nCuantos alumnos quieres ingresar ? (No puedes Ingresar mas de 30)");
             int cantidadAlumnos = entrada.nextInt();
             if (cantidadAlumnos <= 30) {
                 entrada.nextLine(); // Consumir el salto de línea después del nextInt
@@ -97,13 +99,14 @@ public class App {
 
     // se inicializa la clase para el ingreso de las calificaciones
     public static void IngresoCalificaciones(int[][] calificaciones, String[] alumnos, String[] asignaturas) {
-        Scanner entrada = new Scanner(System.in);
+        Random random = new Random();
         for (int i = 0; i < alumnos.length; i++) {
             for (int j = 0; j < asignaturas.length; j++) {
-                System.out.println("Ingrese la calificación de " + alumnos[i] + " en " + asignaturas[j] + ": ");
-                calificaciones[i][j] = entrada.nextInt();
+                int numero = random.nextInt(10) +1;
+                calificaciones[i][j] = numero;
+                System.out.println("El alumno "+ alumnos[i] + " se saco un "+ calificaciones[i][j] + " en " + asignaturas[j]);
             }
         }
-        entrada.close();
     }
+
 }
