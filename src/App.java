@@ -7,62 +7,81 @@ public class App {
         System.out.println("Presiona Enter para continuar...");
         entrada.nextLine();  // Espera hasta que se presiona Enter
         //Ingresar logo con compañeros 
-        IngresoAsginaturas();
-        IngresoEstudiantes();
+
+        int cantidadAsignaturas = IngresoAsignaturas();
+        String[] asignaturas = IngresoAsginaturas(cantidadAsignaturas);
+
+
+
+        int cantidadAlumnos = IngresoEstudiantes();
+        String[] alumnos = new String[cantidadAlumnos];
+        alumnos = IngresoEstudiantes(cantidadAlumnos);
+
+        int [][] calificaciones = new int[cantidadAlumnos][cantidadAsignaturas];
+        IngresoCalificaciones(calificaciones, alumnos, asignaturas);
     }
-
-
-    //se inicializa la clase para ingresar la cantidad de asignaturas
-    public static void IngresoAsginaturas(){
+    public static int IngresoAsignaturas() {
         Scanner entrada = new Scanner(System.in);
         while (true) {
             System.out.println("Cuantas asignaturas quieres ingresar ? \nNo puedes Ingresar mas de 10");
             int cantidadAsignaturas = entrada.nextInt();
             if (cantidadAsignaturas <= 10) {
-                entrada.nextLine();// se agrega este nextline porque luego del nextint el scanner queda una string vacia y hace que se utilize en el bucle de abajo
-                String asignaturas[];
-                //Se chequea que la cantidad de asginaturas sea correcta, de lo contrario se finaliza el programa
-                asignaturas = new String[cantidadAsignaturas];
-                int j = 1;
-                for(int i = 0 ; i < asignaturas.length ; i++ ){
-                    System.out.println("Ingrese la Asignatura nro: " + j);
-                    asignaturas[i] = entrada.nextLine();
-                    j++;
-                }
-                break;
-            }else{
+                entrada.nextLine(); // Consumir el salto de línea después del nextInt
+                return cantidadAsignaturas;
+            } else {
                 System.out.println("Ingrese 10 o menos Asignaturas.");
             }
         }
-            
     }
 
-    //Se inicializa la clase para ingresar alumnos
-    public static void IngresoEstudiantes(){
+    public static String [] IngresoAsginaturas(int cantidadAsignaturas){
+        Scanner entrada = new Scanner(System.in);
+        String asignaturas[] = new String[cantidadAsignaturas];
+        int j = 1;
+        for (int i = 0; i < asignaturas.length; i++) {
+            System.out.println("Ingrese la Asignatura nro: " + j);
+            asignaturas[i] = entrada.nextLine();
+            j++;
+        }
+        return asignaturas;
+    }
+
+    //Se inicializa la clase para ingresar alumnos 
+    public static int IngresoEstudiantes() {
         Scanner entrada = new Scanner(System.in);
         while (true) {
             System.out.println("Cuantos alumnos quieres ingresar ? \nNo puedes Ingresar mas de 30");
             int cantidadAlumnos = entrada.nextInt();
             if (cantidadAlumnos <= 30) {
-                entrada.nextLine();
-                String alumnos[];
-                alumnos = new String[cantidadAlumnos];
-                int j = 1;
-                System.out.println("El formato de ingreso valido de alumnos es: apellido, nombre1 nombre2");
-                for(int i = 0; i < alumnos.length;i++){
-                    System.out.println("Ingrese el Alumno numero: "+ j);
-                    alumnos[i] = entrada.nextLine();
-                    j++;
-                }
-                break;
-            }else{
+                entrada.nextLine(); // Consumir el salto de línea después del nextInt
+                return cantidadAlumnos;
+            } else {
                 System.out.println("Ingrese 30 o menos alumnos");
             }
         }
-    entrada.close();
     }
 
+    public static String[] IngresoEstudiantes(int cantidadAlumnos) {
+        Scanner entrada = new Scanner(System.in);
+        String alumnos[] = new String[cantidadAlumnos];
+        int j = 1;
+        System.out.println("El formato de ingreso valido de alumnos es: apellido, nombre1 nombre2");
+        for (int i = 0; i < alumnos.length; i++) {
+            System.out.println("Ingrese el Alumno numero: " + j);
+            alumnos[i] = entrada.nextLine();
+            j++;
+        }
+        return alumnos;
+    }
 
-    public static void IngresoCalificacione(){
+    public static void IngresoCalificaciones(int[][] calificaciones, String[] alumnos, String[] asignaturas) {
+        Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i < alumnos.length; i++) {
+            for (int j = 0; j < asignaturas.length; j++) {
+                System.out.println("Ingrese la calificación de " + alumnos[i] + " en " + asignaturas[j] + ": ");
+                calificaciones[i][j] = entrada.nextInt();
+            }
+        }
+        entrada.close();
     }
 }
