@@ -5,9 +5,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Bienvenidos al Sistema de Gestion de Califiaciones");
-        System.out.println("Presiona Enter para continuar...");
-        entrada.nextLine();  // Espera hasta que se presiona Enter
-        
+        System.out.println();
+               
         //Ingresar logo con compañeros 
 System.out.println("__________________¶¶¶¶¶");
 System.out.println("_______________¶¶¶¶¶__¶¶________¶¶¶¶¶¶¶¶");
@@ -38,6 +37,10 @@ System.out.println("______¶¶¶¶¶¶¶_______________¶¶¶¶¶¶¶");
 System.out.println("_________¶¶¶¶¶¶___________¶¶¶¶¶¶");
 System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
 System.out.println("______________¶¶¶¶¶¶¶¶¶¶¶¶");
+System.out.println();
+
+        System.out.println("Presiona Enter para continuar...");
+        entrada.nextLine();  // Espera hasta que se presiona Enter
         
         int opcion = 0;
 
