@@ -82,6 +82,8 @@ while(true) {
             System.out.println("Muchas gracias por utilizar nuestro programa. Adios");
             break;
         }else {
+        }
+        else {
              System.out.println("Por favor ingrese un numero valido, entre 1 y 3");
                  break;
             }
