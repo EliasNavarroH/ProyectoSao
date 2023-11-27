@@ -46,8 +46,8 @@ System.out.println();
 
         System.out.println("****************************\nQue deseas hacer?\n1)Cargar datos\n2)Buscar\n3)Salir\n****************************");
         opcion =entrada.nextInt();
-        while(true)
-            if (opcion == 1) {
+    while(true)
+        if (opcion == 1) {
             System.out.println("****** Carga de datos ******\n");
             int cantidadAsignaturas = IngresoAsignaturas();
             String[] asignaturas = IngresoAsginaturas(cantidadAsignaturas);
@@ -59,7 +59,8 @@ System.out.println();
             int [][] calificaciones = new int[cantidadAlumnos][cantidadAsignaturas];
             IngresoCalificaciones(calificaciones, alumnos, asignaturas);
             break;
-        }else if(opcion == 2){
+            }
+        else if(opcion == 2){
             System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Estadisticas\n3)Calculo de Promedios\n4)Salir");
             opcion=entrada.nextInt();
             if (opcion == 1) {
@@ -70,12 +71,16 @@ System.out.println();
                 
             }else if(opcion == 4){
 
-            }else {
+            }
+            else {
                 System.out.println("Ingresa un numero valido");
             }
-        break;
-        }
-
+            break;
+            }
+        else if (opcion == 3) {
+            System.out.println("Muchas gracias por utilizar nuestro programa. Adios");
+            break;
+            }
     }
 
     //Se inicializa el ingreso de asignaturas
