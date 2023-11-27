@@ -66,14 +66,14 @@ while(true) {
             break;
             }
         else if(opcion == 2){
-            System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Estadisticas\n3)Calculo de Promedios\n4)Salir");
+            System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Calculo de Promedios\n4)Salir");
             opcion=entrada.nextInt();
             if (opcion == 1) {
                 alumnos = BuscarEstudiantes(alumnos,asignaturas,calificaciones);
             }else if (opcion ==2) {
-                
+
             }else if (opcion ==3) {
-                
+                alumnos = EstudiantesDestacados(alumnos, asignaturas, calificaciones);
             }else if(opcion == 4){
 
             }
@@ -180,6 +180,18 @@ while(true) {
     }
 
 
+    //Se crea el meotodo de estudiantes destacados
+    public static String[] EstudiantesDestacados(String[]alumnos, String[]asignaturas, int [][]calificaciones){
+        for(int i = 0 ; i < alumnos.length ; i ++){
+            int suma = 0 ;
+            for(int j = 0; j < asignaturas.length ; j++){
+                suma = suma + calificaciones[i][j];
+            }
+            double promedio = (double) suma/ asignaturas.length;
+            System.out.println("El promedio del estudiante: " + alumnos[i] + " es " + promedio);
+        }
+        return alumnos;
+    }
     
 
 }
