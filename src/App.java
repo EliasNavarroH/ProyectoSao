@@ -3,6 +3,8 @@ import java.util.Arrays;
 import java.util.Random;
 public class App {
     
+    private static final Object BuscarEstudiantes = null;
+
     public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
         String[] alumnos = null;
@@ -65,7 +67,7 @@ while(true) {
             System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Estadisticas\n3)Calculo de Promedios\n4)Salir");
             opcion=entrada.nextInt();
             if (opcion == 1) {
-                alumnos = BuscarEstudiantes(alumnos);
+                alumnos = BuscarEstudiantes(alumnos,asignaturas,calificaciones);
             }else if (opcion ==2) {
                 
             }else if (opcion ==3) {
@@ -82,8 +84,6 @@ while(true) {
             System.out.println("Muchas gracias por utilizar nuestro programa. Adios");
             break;
         }else {
-        }
-        else {
              System.out.println("Por favor ingrese un numero valido, entre 1 y 3");
                  break;
             }
@@ -155,20 +155,27 @@ while(true) {
             for (int j = 0; j < asignaturas.length; j++) {
                 int numero = random.nextInt(10) +1;
                 calificaciones[i][j] = numero;
-                System.out.println("El alumno ," + alumnos[i] + ", se saco un " + calificaciones[i][j] + " en " + asignaturas[j]);
             }  
         }
         return calificaciones;
     }
-    public static String[] BuscarEstudiantes(String [] alumnos){
+
+    //Se crea el metodo de busqueda de estudiantes 
+    public static String[] BuscarEstudiantes(String [] alumnos, String[]asignaturas, int [][]calificaciones){
         Scanner entrada = new Scanner(System.in);
         System.out.println("Que estudiante deseas buscar? ");
         String buscarEstudiante = entrada.nextLine();
-        if (Arrays.asList(alumnos).contains(buscarEstudiante)) {
+        int indiceEstudiante = Arrays.asList(alumnos).indexOf(buscarEstudiante);
+        if (indiceEstudiante != -1) {
             System.out.println("El alumno: " + buscarEstudiante + " Esta en la lista y sus notas son:");
+            for(int j = 0 ;j < asignaturas.length ; j++ ){
+                System.out.println("En la asignatura " + asignaturas[j] + " :" + calificaciones[indiceEstudiante][j]);
+            }
         }else{
             System.out.println("El estudiante no se encuentra en esta lista");
         }
         return alumnos;
     }
+    
+
 }
