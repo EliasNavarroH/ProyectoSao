@@ -41,11 +41,10 @@ System.out.println();
 
         System.out.println("Presiona Enter para continuar...");
         entrada.nextLine();  // Espera hasta que se presiona Enter
+while(true) {        
         
-        int opcion = 0;
-
         System.out.println("****************************\nQue deseas hacer?\n1)Cargar datos\n2)Buscar\n3)Salir\n****************************");
-        opcion =entrada.nextInt();
+        int opcion =entrada.nextInt();
     while(true)
         if (opcion == 1) {
             System.out.println("****** Carga de datos ******\n");
@@ -79,8 +78,13 @@ System.out.println();
         else if (opcion == 3) {
             System.out.println("Muchas gracias por utilizar nuestro programa. Adios");
             break;
+        else {
+             System.out.println("Por favor ingrese un numero valido, entre 1 y 3");
+                 break;
             }
+       if (opcion == 3) break;
     }
+ }
 
     //Se inicializa el ingreso de asignaturas
     public static int IngresoAsignaturas() {
