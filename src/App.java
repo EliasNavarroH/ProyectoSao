@@ -3,7 +3,6 @@ import java.util.Arrays;
 import java.util.Random;
 public class App {
     
-    private static final Object BuscarEstudiantes = null;
 
     public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
@@ -90,6 +89,7 @@ while(true) {
                  break;
             }
        if (opcion == 3) break;
+       entrada.close();
     }
  }
 
@@ -105,6 +105,7 @@ while(true) {
             } else {
                 System.out.println("Ingrese 10 o menos Asignaturas.");
             }
+            entrada.close();
         }
     }
     public static String [] IngresoAsginaturas(int cantidadAsignaturas){
@@ -115,6 +116,7 @@ while(true) {
             System.out.println("Ingrese la Asignatura nro: " + j);
             asignaturas[i] = entrada.nextLine();
             j++;
+            entrada.close();
         }
         return asignaturas;
 
@@ -132,6 +134,7 @@ while(true) {
             } else {
                 System.out.println("Ingrese 30 o menos alumnos");
             }
+            entrada.close();
         }
     }
     public static String[] IngresoEstudiantes(int cantidadAlumnos) {
@@ -143,6 +146,7 @@ while(true) {
             System.out.println("Ingrese el Alumno numero: " + j);
             alumnos[i] = entrada.nextLine();
             j++;
+            entrada.close();
         }
         return alumnos;
     }
@@ -176,6 +180,7 @@ while(true) {
         }else{
             System.out.println("El estudiante no se encuentra en esta lista");
         }
+        entrada.close();
         return alumnos;
     }
 
