@@ -56,8 +56,7 @@ System.out.println();
             String[] alumnos = new String[cantidadAlumnos];
             alumnos = IngresoEstudiantes(cantidadAlumnos);
 
-            int [][] calificaciones = new int[cantidadAlumnos][cantidadAsignaturas];
-            IngresoCalificaciones(calificaciones, alumnos, asignaturas);
+            int [][] calificaciones = IngresoCalificaciones(alumnos, asignaturas);
             break;
             }
         else if(opcion == 2){
@@ -137,15 +136,18 @@ System.out.println();
     }
 
     // se inicializa la clase para el ingreso de las calificaciones
-    public static void IngresoCalificaciones(int[][] calificaciones, String[] alumnos, String[] asignaturas) {
+    public static int[][] IngresoCalificaciones(String[] alumnos, String[] asignaturas) {
         Random random = new Random();
+        int [][]calificaciones;
+        calificaciones = new int[alumnos.length][asignaturas.length];
+        
         for (int i = 0; i < alumnos.length; i++) {
             for (int j = 0; j < asignaturas.length; j++) {
                 int numero = random.nextInt(10) +1;
                 calificaciones[i][j] = numero;
-                System.out.println("El alumno "+ alumnos[i] + " se saco un "+ calificaciones[i][j] + " en " + asignaturas[j]);
-            }
+                System.out.println("El alumno ," + alumnos[i] + ", se saco un " + calificaciones[i][j] + " en " + asignaturas[j]);
+            }  
         }
+        return calificaciones;
     }
-
 }
