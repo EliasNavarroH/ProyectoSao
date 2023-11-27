@@ -1,9 +1,13 @@
 import java.util.Scanner;
+import java.util.Arrays;
 import java.util.Random;
 public class App {
     
     public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
+        String[] alumnos = null;
+        String[] asignaturas = null;
+        int[][] calificaciones = null;
         System.out.println("Bienvenidos al Sistema de Gestion de Califiaciones");
         System.out.println();
                
@@ -49,20 +53,19 @@ while(true) {
         if (opcion == 1) {
             System.out.println("****** Carga de datos ******\n");
             int cantidadAsignaturas = IngresoAsignaturas();
-            String[] asignaturas = IngresoAsginaturas(cantidadAsignaturas);
+            asignaturas = IngresoAsginaturas(cantidadAsignaturas);
         
             int cantidadAlumnos = IngresoEstudiantes();
-            String[] alumnos = new String[cantidadAlumnos];
             alumnos = IngresoEstudiantes(cantidadAlumnos);
 
-            int [][] calificaciones = IngresoCalificaciones(alumnos, asignaturas);
+            calificaciones = IngresoCalificaciones(alumnos, asignaturas);
             break;
             }
         else if(opcion == 2){
             System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Estadisticas\n3)Calculo de Promedios\n4)Salir");
             opcion=entrada.nextInt();
             if (opcion == 1) {
-                
+                alumnos = BuscarEstudiantes(alumnos);
             }else if (opcion ==2) {
                 
             }else if (opcion ==3) {
@@ -78,7 +81,7 @@ while(true) {
         else if (opcion == 3) {
             System.out.println("Muchas gracias por utilizar nuestro programa. Adios");
             break;
-        else {
+        }else {
              System.out.println("Por favor ingrese un numero valido, entre 1 y 3");
                  break;
             }
@@ -110,6 +113,7 @@ while(true) {
             j++;
         }
         return asignaturas;
+
     }
 
     //Se inicializa la clase para ingresar alumnos 
@@ -153,5 +157,16 @@ while(true) {
             }  
         }
         return calificaciones;
+    }
+    public static String[] BuscarEstudiantes(String [] alumnos){
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Que estudiante deseas buscar? ");
+        String buscarEstudiante = entrada.nextLine();
+        if (Arrays.asList(alumnos).contains(buscarEstudiante)) {
+            System.out.println("El alumno: " + buscarEstudiante + " Esta en la lista y sus notas son:");
+        }else{
+            System.out.println("El estudiante no se encuentra en esta lista");
+        }
+        return alumnos;
     }
 }
