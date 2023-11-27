@@ -73,7 +73,7 @@ while(true) {
             }else if (opcion ==2) {
 
             }else if (opcion ==3) {
-                alumnos = EstudiantesDestacados(alumnos, asignaturas, calificaciones);
+                alumnos = EstudiantesPromedios(alumnos, asignaturas, calificaciones);
             }else if(opcion == 4){
 
             }
@@ -181,7 +181,7 @@ while(true) {
 
 
     //Se crea el meotodo de estudiantes destacados
-    public static String[] EstudiantesDestacados(String[]alumnos, String[]asignaturas, int [][]calificaciones){
+    public static String[] EstudiantesPromedios(String[]alumnos, String[]asignaturas, int [][]calificaciones){
         for(int i = 0 ; i < alumnos.length ; i ++){
             int suma = 0 ;
             for(int j = 0; j < asignaturas.length ; j++){
@@ -194,4 +194,4 @@ while(true) {
     }
     
 
-}
+}  
