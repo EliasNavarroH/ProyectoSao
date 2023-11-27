@@ -61,6 +61,8 @@ while(true) {
             alumnos = IngresoEstudiantes(cantidadAlumnos);
 
             calificaciones = IngresoCalificaciones(alumnos, asignaturas);
+
+            System.out.println("\nDatos cargados en el sistema! ");
             break;
             }
         else if(opcion == 2){
@@ -176,6 +178,8 @@ while(true) {
         }
         return alumnos;
     }
+
+
     
 
 }
