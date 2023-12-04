@@ -1,12 +1,12 @@
-mport java.util.Scanner;
+import java.util.Scanner;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
 public class App {
-    
+
+    private static final Scanner entrada = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        Scanner entrada = new Scanner(System.in);
         String[] alumnos = null;
         String[] asignaturas = null;
         int[][] calificaciones = null;
@@ -104,7 +104,6 @@ while(true) {
 
         System.out.println("Cuantas asignaturas quieres ingresar? (No puedes ingresar mas de 10)");
 
-        Scanner entrada = new Scanner(System.in);
 
         while (entradaInvalida) {
             try {
@@ -126,7 +125,6 @@ while(true) {
         return cantidadAsignaturas;
     }
     public static String [] IngresoAsginaturas(int cantidadAsignaturas){
-        Scanner entrada = new Scanner(System.in);
         String asignaturas[] = new String[cantidadAsignaturas];
         int j = 1;
         for (int i = 0; i < asignaturas.length; i++) {
@@ -142,7 +140,6 @@ while(true) {
 
     //Se inicializa la clase para ingresar alumnos 
     public static int IngresoEstudiantes() {
-        Scanner entrada = new Scanner(System.in);
         while (true) {
             
             boolean entradaInvalida = true;
@@ -165,7 +162,6 @@ while(true) {
         }
     }
     public static String[] IngresoEstudiantes(int cantidadAlumnos) {
-        Scanner entrada = new Scanner(System.in);
         String alumnos[] = new String[cantidadAlumnos];
         int j = 1;
         System.out.println("El formato de ingreso valido de alumnos es: apellido, nombre1 nombre2");
@@ -175,7 +171,6 @@ while(true) {
             j++;
            
         }
-        
         return alumnos;
     }
 
@@ -196,7 +191,6 @@ while(true) {
 
     //Se crea el metodo de busqueda de estudiantes 
     public static String[] BuscarEstudiantes(String [] alumnos, String[]asignaturas, int [][]calificaciones){
-        Scanner entrada = new Scanner(System.in);
         System.out.println("Que estudiante deseas buscar? ");
         String buscarEstudiante = entrada.nextLine();
         int indiceEstudiante = Arrays.asList(alumnos).indexOf(buscarEstudiante);
@@ -226,6 +220,7 @@ while(true) {
         return alumnos;
     }
     
+    //Metodo estudiantes destacados
     public static String [] EstudiantesDestacados(String[]alumnos, String[]asignaturas, int [][]calificaciones) {
         boolean notaDestacada = false;
         for(int i = 0; i < alumnos.length; i++) {
@@ -240,6 +235,7 @@ while(true) {
         return alumnos;
     }
     
+    //El metodo de estadisticas
     public static String [] Estadisticas(String[]alumnos, String[]asignaturas, int [][]calificaciones) {
        
         
@@ -272,5 +268,8 @@ while(true) {
         
         return alumnos;
     }
-        
+    
+    public static void cerrarScanner(){
+        entrada.close();
     }
+}
