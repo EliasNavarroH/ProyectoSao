@@ -144,16 +144,24 @@ while(true) {
     public static int IngresoEstudiantes() {
         Scanner entrada = new Scanner(System.in);
         while (true) {
-            System.out.println("\nCuantos alumnos quieres ingresar ? (No puedes Ingresar mas de 30)");
-            int cantidadAlumnos = entrada.nextInt();
-            if (cantidadAlumnos <= 30) {
-                entrada.nextLine(); // Consumir el salto de línea después del nextInt
+            
+            boolean entradaInvalida = true;
+            while (entradaInvalida) {
+                try {
+                System.out.println("\nCuantos alumnos quieres ingresar ? (No puedes Ingresar mas de 30)");
+                int cantidadAlumnos = entrada.nextInt();
+                    if (cantidadAlumnos <= 30) {
+                    entrada.nextLine(); // Consumir el salto de línea después del nextInt
                 
                 return cantidadAlumnos;
-            } else {
-                System.out.println("Ingrese 30 o menos alumnos");
+             }      else {
+                    System.out.println("Ingrese 30 o menos alumnos");
+                    }
+            }   catch (InputMismatchException i) {
+        System.out.println("Debe ingresar un numero entero entre 0 y 30");
+                entrada.nextLine(); // Limpiar el búfer en caso de excepción}
+                }
             }
-            
         }
     }
     public static String[] IngresoEstudiantes(int cantidadAlumnos) {
