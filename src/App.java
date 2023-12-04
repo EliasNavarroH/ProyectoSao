@@ -225,21 +225,26 @@ while(true) {
         for(int i = 0; i < asignaturas.length; i++) {
         double notaMasAlta = 0;
         double notaMasBaja = 10;
-        String asignaturaMasAlta = asignaturas[0];
-        String asignaturaMasBaja = asignaturas[0];
+        String asignaturaMasAlta = asignaturas[i];
+        String asignaturaMasBaja = asignaturas[i];
         int  j;
+        int indiceAlumnoMasAlta = 0;
+        int indiceAlumnoMasBaja = 0;
             for (j = 0; j < alumnos.length; j++ ) {
                 if (notaMasAlta < calificaciones [j][i]) {
-                    notaMasAlta = 0 + calificaciones[j][i];
+                    notaMasAlta = calificaciones[j][i];
                    asignaturaMasAlta = asignaturas[i]; 
+                   indiceAlumnoMasAlta = j;
                 }
-                else if (notaMasBaja > calificaciones [j][i]){
-                    notaMasBaja = 0 + calificaciones[j][i];
+                if (notaMasBaja > calificaciones [j][i]){
+                    notaMasBaja = calificaciones[j][i];
                     asignaturaMasBaja = asignaturas [i];
+                    indiceAlumnoMasBaja = j;
                 }
             }
-            System.out.println("Para la asignatura " + asignaturaMasAlta + " la nota más alta es " + calificaciones[j][i] + " del alumno " + alumnos[j]);
-            System.out.println("Para la asignatura " + asignaturaMasBaja + " la nota más baja es " + calificaciones[j][i] + " del alumno " + alumnos[j]);
+            
+            System.out.println("Para la asignatura " + asignaturaMasAlta + " la nota más alta es " + notaMasAlta + " del alumno " + alumnos[indiceAlumnoMasAlta]);
+            System.out.println("Para la asignatura " + asignaturaMasBaja + " la nota más baja es " + notaMasBaja + " del alumno " + alumnos[indiceAlumnoMasBaja]);
         
         }
         
