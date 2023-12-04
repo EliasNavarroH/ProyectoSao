@@ -1,5 +1,6 @@
-import java.util.Scanner;
+mport java.util.Scanner;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Random;
 public class App {
     
@@ -97,37 +98,7 @@ while(true) {
  }
 
     //Se inicializa el ingreso de asignaturas
-    public static int IngresoAsignaturas() {
-        Scanner entrada = new Scanner(System.in);
-        while (true) {
-            System.out.println("Cuantas asignaturas quieres ingresar ? (No puedes Ingresar mas de 10)");
-            int cantidadAsignaturas = entrada.nextInt();
-            if (cantidadAsignaturas <= 10) {
-                entrada.nextLine(); // Consumir el salto de línea después del nextInt
-                return cantidadAsignaturas;
-            } else {
-                System.out.println("Ingrese 10 o menos Asignaturas.");
-            }
-            
-        }
-    }
-    public static String [] IngresoAsginaturas(int cantidadAsignaturas){
-        Scanner entrada = new Scanner(System.in);
-        String asignaturas[] = new String[cantidadAsignaturas];
-        int j = 1;
-        for (int i = 0; i < asignaturas.length; i++) {
-            System.out.println("Ingrese la Asignatura nro: " + j);
-            asignaturas[i] = entrada.nextLine();
-            j++;
-            
-        }
-        
-        return asignaturas;
-
-    }
-
-    //Se inicializa la clase para ingresar alumnos 
-    public static int IngresoAsignaturas() {
+        public static int IngresoAsignaturas() {
         int cantidadAsignaturas = 0;
         boolean entradaInvalida = true;
 
@@ -154,6 +125,36 @@ while(true) {
        
         return cantidadAsignaturas;
     }
+    public static String [] IngresoAsginaturas(int cantidadAsignaturas){
+        Scanner entrada = new Scanner(System.in);
+        String asignaturas[] = new String[cantidadAsignaturas];
+        int j = 1;
+        for (int i = 0; i < asignaturas.length; i++) {
+            System.out.println("Ingrese la Asignatura nro: " + j);
+            asignaturas[i] = entrada.nextLine();
+            j++;
+            
+        }
+        
+        return asignaturas;
+
+    }
+
+    //Se inicializa la clase para ingresar alumnos 
+    public static int IngresoEstudiantes() {
+        Scanner entrada = new Scanner(System.in);
+        while (true) {
+            System.out.println("\nCuantos alumnos quieres ingresar ? (No puedes Ingresar mas de 30)");
+            int cantidadAlumnos = entrada.nextInt();
+            if (cantidadAlumnos <= 30) {
+                entrada.nextLine(); // Consumir el salto de línea después del nextInt
+                
+                return cantidadAlumnos;
+            } else {
+                System.out.println("Ingrese 30 o menos alumnos");
+            }
+            
+        }
     }
     public static String[] IngresoEstudiantes(int cantidadAlumnos) {
         Scanner entrada = new Scanner(System.in);
@@ -256,8 +257,8 @@ while(true) {
                 }
             }
             
-            System.out.println("Para la asignatura " + asignaturaMasAlta + " la nota más alta es " + notaMasAlta + " del alumno " + alumnos[indiceAlumnoMasAlta]);
-            System.out.println("Para la asignatura " + asignaturaMasBaja + " la nota más baja es " + notaMasBaja + " del alumno " + alumnos[indiceAlumnoMasBaja]);
+            System.out.println("Para la asignatura " + asignaturaMasAlta + " la nota mas alta es " + notaMasAlta + " del alumno " + alumnos[indiceAlumnoMasAlta]);
+            System.out.println("Para la asignatura " + asignaturaMasBaja + " la nota mas baja es " + notaMasBaja + " del alumno " + alumnos[indiceAlumnoMasBaja]);
         
         }
         
@@ -265,4 +266,3 @@ while(true) {
     }
         
     }
- 
