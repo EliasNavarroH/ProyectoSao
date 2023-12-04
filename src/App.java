@@ -82,7 +82,7 @@ while(true) {
             else {
                 System.out.println("Ingresa un numero valido");
             }
-            break
+            break;
             }
         else if (opcion == 3) {
             System.out.println("Muchas gracias por utilizar nuestro programa. Adios");
