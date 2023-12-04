@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Random;
-public class App {
+public class AmbientePruebas2 {
     
 
     public static void main(String[] args) throws Exception {
@@ -62,24 +62,27 @@ while(true) {
             calificaciones = IngresoCalificaciones(alumnos, asignaturas);
 
             System.out.println("\nDatos cargados en el sistema! ");
+            
             break;
             }
         else if(opcion == 2){
-            System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Calculo de Promedios\n4)Salir");
+            System.out.println("Que deseas buscar ?\n1)Estudiantes\n2)Estudiantes destacados\n3)Calculo de Promedios\n4)Ver Estadisticas\n5)Salir");
             opcion=entrada.nextInt();
             if (opcion == 1) {
                 alumnos = BuscarEstudiantes(alumnos,asignaturas,calificaciones);
             }else if (opcion ==2) {
-
+                alumnos = EstudiantesDestacados(alumnos, asignaturas, calificaciones);
             }else if (opcion ==3) {
                 alumnos = EstudiantesPromedios(alumnos, asignaturas, calificaciones);
-            }else if(opcion == 4){
-
+            }else if (opcion ==4) {
+                alumnos = Estadisticas(alumnos, asignaturas, calificaciones);
+            }else if(opcion == 5){
+                break;
             }
             else {
                 System.out.println("Ingresa un numero valido");
             }
-            break;
+            break
             }
         else if (opcion == 3) {
             System.out.println("Muchas gracias por utilizar nuestro programa. Adios");
@@ -89,7 +92,7 @@ while(true) {
                  break;
             }
        if (opcion == 3) break;
-       entrada.close();
+       
     }
  }
 
@@ -105,7 +108,7 @@ while(true) {
             } else {
                 System.out.println("Ingrese 10 o menos Asignaturas.");
             }
-            entrada.close();
+            
         }
     }
     public static String [] IngresoAsginaturas(int cantidadAsignaturas){
@@ -116,8 +119,9 @@ while(true) {
             System.out.println("Ingrese la Asignatura nro: " + j);
             asignaturas[i] = entrada.nextLine();
             j++;
-            entrada.close();
+            
         }
+        
         return asignaturas;
 
     }
@@ -130,11 +134,12 @@ while(true) {
             int cantidadAlumnos = entrada.nextInt();
             if (cantidadAlumnos <= 30) {
                 entrada.nextLine(); // Consumir el salto de línea después del nextInt
+                
                 return cantidadAlumnos;
             } else {
                 System.out.println("Ingrese 30 o menos alumnos");
             }
-            entrada.close();
+            
         }
     }
     public static String[] IngresoEstudiantes(int cantidadAlumnos) {
@@ -146,8 +151,9 @@ while(true) {
             System.out.println("Ingrese el Alumno numero: " + j);
             alumnos[i] = entrada.nextLine();
             j++;
-            entrada.close();
+           
         }
+        
         return alumnos;
     }
 
@@ -180,7 +186,7 @@ while(true) {
         }else{
             System.out.println("El estudiante no se encuentra en esta lista");
         }
-        entrada.close();
+        
         return alumnos;
     }
 
@@ -198,5 +204,47 @@ while(true) {
         return alumnos;
     }
     
-
-}  
+    public static String [] EstudiantesDestacados(String[]alumnos, String[]asignaturas, int [][]calificaciones) {
+        boolean notaDestacada = false;
+        for(int i = 0; i < alumnos.length; i++) {
+            for ( int j = 0; j < asignaturas.length; j++ ) {
+                if (calificaciones[i][j] >= 9) {
+                    notaDestacada = true;
+                    System.out.println("El estudiante " + alumnos[i] + " esta destacado en " + asignaturas[j] + " con la nota: " + calificaciones[i][j]);
+                }
+            }
+        }
+            if (notaDestacada == false) System.out.println("No hay estudiantes destacados");
+        return alumnos;
+    }
+    
+    public static String [] Estadisticas(String[]alumnos, String[]asignaturas, int [][]calificaciones) {
+       
+        
+        
+        for(int i = 0; i < asignaturas.length; i++) {
+        double notaMasAlta = 0;
+        double notaMasBaja = 10;
+        String asignaturaMasAlta = asignaturas[0];
+        String asignaturaMasBaja = asignaturas[0];
+        int  j;
+            for (j = 0; j < alumnos.length; j++ ) {
+                if (notaMasAlta < calificaciones [j][i]) {
+                    notaMasAlta = 0 + calificaciones[j][i];
+                   asignaturaMasAlta = asignaturas[i]; 
+                }
+                else if (notaMasBaja > calificaciones [j][i]){
+                    notaMasBaja = 0 + calificaciones[j][i];
+                    asignaturaMasBaja = asignaturas [i];
+                }
+            }
+            System.out.println("Para la asignatura " + asignaturaMasAlta + " la nota más alta es " + calificaciones[j][i] + " del alumno " + alumnos[j]);
+            System.out.println("Para la asignatura " + asignaturaMasBaja + " la nota más baja es " + calificaciones[j][i] + " del alumno " + alumnos[j]);
+        
+        }
+        
+        return alumnos;
+    }
+        
+    }
+ 
