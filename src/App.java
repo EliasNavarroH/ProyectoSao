@@ -47,7 +47,8 @@ System.out.println();
 
         System.out.println("Presiona Enter para continuar...");
         entrada.nextLine();  // Espera hasta que se presiona Enter
-while(true) {        
+boolean encendido = true;
+while(encendido) {         
         
         System.out.println("****************************\nQue deseas hacer?\n1)Cargar datos\n2)Buscar\n3)Salir\n****************************");
         int opcion =entrada.nextInt();
@@ -87,6 +88,7 @@ while(true) {
             }
         else if (opcion == 3) {
             System.out.println("Muchas gracias por utilizar nuestro programa. Adios");
+            encendido = false;
             break;
         }else {
              System.out.println("Por favor ingrese un numero valido, entre 1 y 3");
