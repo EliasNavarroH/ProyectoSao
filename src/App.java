@@ -192,7 +192,7 @@ while(true) {
     //Se crea el metodo de busqueda de estudiantes 
     public static String[] BuscarEstudiantes(String [] alumnos, String[]asignaturas, int [][]calificaciones){
         System.out.println("Que estudiante deseas buscar? ");
-        String buscarEstudiante = entrada.nextLine();
+        String buscarEstudiante = entrada.next();
         int indiceEstudiante = Arrays.asList(alumnos).indexOf(buscarEstudiante);
         if (indiceEstudiante != -1) {
             System.out.println("El alumno: " + buscarEstudiante + " Esta en la lista y sus notas son:");
