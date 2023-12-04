@@ -92,7 +92,7 @@ while(true) {
              System.out.println("Por favor ingrese un numero valido, entre 1 y 3");
                  break;
             }
-       if (opcion == 3) break;
+      
        
     }
  }
